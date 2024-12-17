@@ -5,6 +5,8 @@ import BarraLateral from "./components/BarraLateral"
 import Banner from "./components/Banner"
 import banner from "./assets/banner.png"
 import Galeria from "./components/Galeria"
+import fotos from "./fotos.json"
+import { useState } from "react"
 
 const AppContainer = styled.div`
   width: 1280px;
@@ -30,7 +32,8 @@ const ContenidoGaleria = styled.section`
 
 
 
-function App() {
+const App = () => {
+  const [fotosGaleria, setFotosGaleria] = useState(fotos)
 
   return (
     <>
@@ -42,7 +45,7 @@ function App() {
         <BarraLateral />
         <ContenidoGaleria>
           <Banner  backgroundImage={banner} />
-          <Galeria />
+          <Galeria fotos={fotosGaleria}/>
         </ContenidoGaleria>
       </MainContainer>
     </AppContainer>
